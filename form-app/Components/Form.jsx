@@ -9,11 +9,56 @@ const FORM = styled.form`
     display: flex;
     flex-direction: column;
     margin-top: 25%;
+    @media screen and (max-width: 600px) {      
+        width: 90vw;
+        margin-top: 10%;
+    }
     h1{
         margin-bottom: 2rem;
         color:#5A767F;
         font-size: 1.5rem;
     } 
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+    div label{
+        color:#5A767F;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    div input{
+        margin: 0.2rem 0 2rem 0;
+        background-color:#F7F8F9;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0px 1px 2px #00000029;
+
+    }
+    .div-buttons{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        height: 3rem;
+    }
+    .register{
+        background-color: #FF4F5A;
+        color: #fff;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .info{
+        color: #FF4F5A;
+        background-color:#fff; 
+        border: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+    }
 `;
 
 export default function Form(){
@@ -31,9 +76,9 @@ export default function Form(){
                     <label htmlFor="name">Phone number</label>
                     <input type="number" name="" id="" placeholder='000 000 00 00'/>
                 </div>
-                <div>
-                    <button type="submit">Register</button>
-                    <button>Info</button>
+                <div className='div-buttons'>
+                    <button type="submit" className='register'>Register</button>
+                    <button className='info'>Info</button>
                 </div>
             </FORM>
         </>
