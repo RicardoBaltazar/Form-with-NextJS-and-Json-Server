@@ -1,4 +1,6 @@
+import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const FORM = styled.form`
     background-color: #fff;
@@ -62,6 +64,13 @@ const FORM = styled.form`
 `;
 
 export default function Form(){
+
+    const [ name, setName ] = React.useState('ricardo');
+
+    React.useEffect(() => {
+        alert(name);
+      }, [name]);
+
     return (
         <>
             <FORM>
@@ -77,8 +86,13 @@ export default function Form(){
                     <input type="number" name="" id="" placeholder='000 000 00 00'/>
                 </div>
                 <div className='div-buttons'>
-                    <button type="submit" className='register'>Register</button>
-                    <button className='info'>Info</button>
+                    <button type="submit" className='register'  onClick={() => setName('Ricardson')}>Register</button>
+                    <Link 
+                    href='info'
+                    >
+                        <button className='info'>Info</button>
+                    </Link>
+                    {/* <Link><button className='info'>Info</button></Link> */}
                 </div>
             </FORM>
         </>
