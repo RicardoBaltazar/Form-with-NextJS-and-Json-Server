@@ -63,36 +63,95 @@ const FORM = styled.form`
     }
 `;
 
-export default function Form(){
+export default function Form() {
 
-    const [ name, setName ] = React.useState('ricardo');
+    const [data, setData] = React.useState({
+        name: '',
+        email: '',
+        number: ''
+    });
 
-    React.useEffect(() => {
-        alert(name);
-      }, [name]);
+    // React.useEffect(() => {
+    //     alert(name);
+    //   }, [name]);
+
+    const handleInputChange = (event) => {
+        setData({
+            ...data,
+            [event.target.name]: event.target.value,
+            [event.target.name]: event.target.value,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    function submit(event) {
+        event.preventDefault();
+        console.log('Alterando valores das variaveis');
+        console.log(data.name);
+        console.log(data.email);
+        console.log(data.number);
+
+        fetch(`http://localhost:8000/users`, {
+            method: 'POST',
+            body: JSON.stringify({
+                name: data.name,
+                email: data.email,
+                number: data.number
+            }),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(function (data) {
+                return data.json()
+            })
+            .then(function () {
+                console.log('Dados enviados para a API')
+            })
+    }
+
+    // React.useEffect(() => {
+    //     fetch(`http://localhost:8000/users`, {
+    //         method: 'POST',
+    //         body: JSON.stringify({ 
+    //             name: data.name, 
+    //             email: data.email,
+    //             number: data.number 
+    //         }),
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         }
+    //     })
+    //         .then(function (data) {
+    //             return data.json()
+    //         })
+    //         .then(function () {
+    //             console.log('Dados enviados para a API')
+    //         })
+    // }, []);
 
     return (
         <>
-            <FORM>
+            <FORM onSubmit={submit}>
                 <h1>Registration</h1>
                 <div>
                     <label htmlFor="name">First name</label>
-                    <input type="text" name="" id="" placeholder='Name'/>
+                    <input type="text" name="name" placeholder='Name' onChange={handleInputChange} />
 
                     <label htmlFor="name">Email</label>
-                    <input type="email" name="" id="" placeholder='Email'/>
+                    <input type="email" name="email" placeholder='Email' onChange={handleInputChange} />
 
                     <label htmlFor="name">Phone number</label>
-                    <input type="number" name="" id="" placeholder='000 000 00 00'/>
+                    <input type="number" name="number" placeholder='000 000 00 00' onChange={handleInputChange} />
                 </div>
                 <div className='div-buttons'>
-                    <button type="submit" className='register'  onClick={() => setName('Ricardson')}>Register</button>
-                    <Link 
-                    href='info'
+                    {/* <button type="submit" className='register' onClick={() => setName('Ricardson')}>Register</button> */}
+                    <button type="submit" className='register'>Register</button>
+                    <Link
+                        href='info'
                     >
                         <button className='info'>Info</button>
                     </Link>
-                    {/* <Link><button className='info'>Info</button></Link> */}
                 </div>
             </FORM>
         </>
