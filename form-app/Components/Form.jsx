@@ -71,10 +71,6 @@ export default function Form() {
         number: ''
     });
 
-    // React.useEffect(() => {
-    //     alert(name);
-    //   }, [name]);
-
     const handleInputChange = (event) => {
         setData({
             ...data,
@@ -84,7 +80,7 @@ export default function Form() {
         });
     };
 
-    function submit(event) {
+    function handleSubmit(event) {
         event.preventDefault();
         console.log('Alterando valores das variaveis');
         console.log(data.name);
@@ -108,7 +104,11 @@ export default function Form() {
             .then(function () {
                 console.log('Dados enviados para a API')
             })
+        
+         
     }
+
+
 
     // React.useEffect(() => {
     //     fetch(`http://localhost:8000/users`, {
@@ -132,7 +132,7 @@ export default function Form() {
 
     return (
         <>
-            <FORM onSubmit={submit}>
+            <FORM onSubmit={handleSubmit}>
                 <h1>Registration</h1>
                 <div>
                     <label htmlFor="name">First name</label>

@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Ricardo",
-      "email": "email@email.com",
-      "number": "51999999991"
-    },
-    {
       "name": "Ricardo Baltazar",
       "email": "email@email",
       "number": "123456789",
-      "id": "OG9TmVQ"
+      "id": 1
+    },
+    {
+      "name": "Ricardo",
+      "email": "email@email",
+      "number": "877451",
+      "id": 2
     }
   ]
 }

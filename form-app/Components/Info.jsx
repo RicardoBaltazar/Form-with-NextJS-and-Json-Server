@@ -16,10 +16,13 @@ const DivInfo = styled.div`
     }
 `
 
-export default function Info(){
+export default function Info(props) {
+
     return (
         <DivInfo>
-            ola
+            <div className='div-card'>
+                {props.children}
+            </div>
         </DivInfo>
     )
 }
