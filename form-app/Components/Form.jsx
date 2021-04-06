@@ -104,31 +104,8 @@ export default function Form() {
             .then(function () {
                 console.log('Dados enviados para a API')
             })
-        
-         
     }
 
-
-
-    // React.useEffect(() => {
-    //     fetch(`http://localhost:8000/users`, {
-    //         method: 'POST',
-    //         body: JSON.stringify({ 
-    //             name: data.name, 
-    //             email: data.email,
-    //             number: data.number 
-    //         }),
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         }
-    //     })
-    //         .then(function (data) {
-    //             return data.json()
-    //         })
-    //         .then(function () {
-    //             console.log('Dados enviados para a API')
-    //         })
-    // }, []);
 
     return (
         <>
@@ -145,7 +122,6 @@ export default function Form() {
                     <input type="number" name="number" placeholder='000 000 00 00' onChange={handleInputChange} />
                 </div>
                 <div className='div-buttons'>
-                    {/* <button type="submit" className='register' onClick={() => setName('Ricardson')}>Register</button> */}
                     <button type="submit" className='register'>Register</button>
                     <Link
                         href='info'

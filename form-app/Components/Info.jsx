@@ -17,7 +17,6 @@ const DivInfo = styled.div`
 `
 
 export default function Info(props) {
-
     return (
         <DivInfo>
             <div className='div-card'>
